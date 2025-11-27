@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api import market, ai, portfolio
+from app.api import market, ai, portfolio, auth
 
 app = FastAPI(title="StockVision AI")
 
@@ -14,6 +14,7 @@ app.add_middleware(
 )
 
 # Include routers
+app.include_router(auth.router, prefix="/api")
 app.include_router(market.router, prefix="/api/market")
 app.include_router(ai.router, prefix="/api/ai")
 app.include_router(portfolio.router, prefix="/api")

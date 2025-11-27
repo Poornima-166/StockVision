@@ -31,6 +31,6 @@ export function useAuth(){
    return useContext(AuthContext);
    }
 export async function apiWithAuth(token){ 
-  const instance = (await import('axios')).default.create({ baseURL: 'http://localhost:4000' }); 
+  const instance = (await import('axios')).default.create({ baseURL: 'http://localhost:8000' }); 
   if(token) instance.defaults.headers.common['Authorization'] = 'Bearer ' + token; return instance;
  }

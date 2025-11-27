@@ -10,12 +10,12 @@ export default function Register(){
    const { saveToken } = useAuth();
   async function submit(e){ e.preventDefault(); 
     try{ 
-      const res = await axios.post('http://localhost:4000/api/register',{email,password,name}); 
+      const res = await axios.post('http://localhost:8000/api/register',{email,password,name}); 
       saveToken(res.data.token);
        alert('Registered'); 
        navigate('/dashboard'); 
       }catch(err){ 
-        alert(err?.response?.data?.error || 'Register failed'); 
+        alert(err?.response?.data?.detail || 'Register failed'); 
       } }
   return (
   <div className='page card'>

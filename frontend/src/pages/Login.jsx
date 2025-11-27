@@ -9,12 +9,12 @@ export default function Login(){
    const { saveToken } = useAuth();
   async function submit(e){ e.preventDefault();
      try{
-       const res = await axios.post('http://localhost:4000/api/login',{email,password}); 
+       const res = await axios.post('http://localhost:8000/api/login',{email,password}); 
        saveToken(res.data.token); 
        alert('Login successful');
         navigate('/dashboard'); 
       }catch(err){ 
-        alert(err?.response?.data?.error || 'Login failed'); }
+        alert(err?.response?.data?.detail || 'Login failed'); }
        }
   return (
   <div className='page card'>
